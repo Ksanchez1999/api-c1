@@ -1,0 +1,172 @@
+
+/* >>>>>>>>>> VARIABLES >>>>>>>>>> */
+:root {
+  --primary-color: #818cf8;
+  --bg-gradient: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+  --glass-bg: rgba(30, 41, 59, 0.8);
+  --text-main: #f1f5f9;
+  --border-color: rgba(255, 255, 255, 0.1);
+  --btn-bg: #334155;
+}
+
+body.light-mode {
+  --primary-color: #6366f1;
+  --bg-gradient: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
+  --glass-bg: rgba(255, 255, 255, 0.7);
+  --text-main: #1e293b;
+  --border-color: rgba(0, 0, 0, 0.1);
+  --btn-bg: #ffffff;
+}
+
+
+
+/* >>>>>>>>>> GENERAL >>>>>>>>>> */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 62.5%;
+}
+
+
+
+/* >>>>>>>>>> BODY >>>>>>>>>> */
+body {
+  padding: 50px;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background: var(--bg-gradient);
+  font-family: 'Inter', sans-serif;
+}
+
+
+
+/* >>>>>>>>>> BUTTON THEME TOGGLE >>>>>>>>>> */
+.btn-theme-toggle {
+  position: fixed;
+  top: 1rem;
+  left: 1rem;
+  background: var(--btn-bg);
+  padding: 8px 16px;
+  font-size: 1.3rem;
+  color: var(--text-main);
+  cursor: pointer;
+  border: 1px solid var(--border-color);
+  border-radius: 10px;
+  transition: scale 0.001s ease;
+}
+
+.btn-theme-toggle:hover{
+  filter: brightness(1.1);
+}
+
+
+
+/* >>>>>>>>>> LOGIN CARD >>>>>>>>>> */
+.login-card {
+    width: 100%;
+    max-width: 40rem;
+    background: var(--glass-bg);
+    border: 1px solid var(--border-color);
+    border-radius: 20px;
+    padding: 4rem;
+    box-shadow: 0 25px 50px rgba(0, 0, 0, 0.3);
+    text-align: center;
+}
+
+
+/* ------ TITLE ------ */
+.login-title {
+    color: var(--primary-color);
+    font-size: 2.8rem;
+    margin-bottom: 3rem;
+    letter-spacing: 2px;
+}
+
+
+/* ------ GROUP ------ */
+.input-group {
+  text-align: left;
+  margin-bottom: 1.5rem;
+}
+
+
+/* ** LABEL ** */
+.input-group label{
+  display: block;
+  font-size: 1.2rem;
+  margin-bottom: 0.8rem;
+  color: var(--primary-color);
+  font-weight: 600;
+}
+
+
+/* ** INPUT ** */
+body.light-mode .input-group input {
+    background: rgba(255, 255, 255, 0.5);
+}
+
+.input-group input:focus {
+    border-color: var(--primary-color);
+}
+
+.input-group input{
+  width: 100%;
+  padding: 1rem;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid var(--border-color);
+  border-radius: 10px;
+  color: var(--text-main);
+  font-size: 1.4rem;
+  outline: none;
+}
+
+
+/* ** BUTTON ** */
+.login-button {
+    width: 100%;
+    padding: 14px;
+    background: var(--primary-color);
+    color: white;
+    border: none;
+    border-radius: 10px;
+    font-size: 1.6rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: transform 0.2s, filter 0.2s;
+    margin-top: 10px;
+}
+
+.login-button:hover {
+    filter: brightness(1.1);
+    transform: translateY(-2px);
+}
+
+.login-button:active {
+    transform: translateY(0);
+}
+
+
+
+
+
+
+
+
+
+
+/* >>>>>>>>>> RESPONSIVE >>>>>>>>>> */
+
+@media (max-width: 480px) {
+  html {
+    font-size: 50%;
+  }
+}
+
+

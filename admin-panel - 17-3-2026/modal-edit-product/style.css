@@ -1,0 +1,172 @@
+
+
+/* >>>>>>>>>> MODAL >>>>>>>>>> */
+.modal-edit-product {
+  display: flex;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(0, 0, 0, 0.85);
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+}
+
+.modal-edit-product-content {
+  display: flex;
+  flex-direction: column;
+  max-height: 85vh;
+  width: 90%;
+  max-width: 500px;
+  background: var(--bg-modal);
+  border: 1px solid var(--border-color);
+  border-radius: 20px;
+  box-shadow: 0 25px 50px rgba(0, 0, 0, 0.3);
+  padding: 2.5rem;
+  color: var(--text-main);
+  overflow: hidden;
+}
+
+
+
+/* >>>>>>>>>> HEADER >>>>>>>>>> */
+.modal-edit-product-content .header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 2rem;
+}
+
+.modal-edit-product-content .header h2 {
+  font-size: 2rem;
+  color: var(--primary-color);
+}
+
+.modal-edit-product-content .header .close-modal {
+  background: transparent;
+  border: none;
+  color: var(--text-main);
+  font-size: 2.5rem;
+  cursor: pointer;
+  opacity: 0.6;
+}
+
+.modal-edit-product-content .header .close-modal:hover {
+  opacity: 1;
+}
+
+
+
+/* >>>>>>>>>> BODY >>>>>>>>>> */
+.modal-edit-product-content .body {
+  flex: 1;
+  overflow-y: auto;
+  min-height: 0;
+  padding-right: 10px;
+}
+
+.modal-edit-product-content .body::-webkit-scrollbar {
+  width: 6px;
+}
+.modal-edit-product-content .body::-webkit-scrollbar-thumb {
+  background: var(--primary-color);
+  border-radius: 10px;
+}
+
+
+/* ___________FORM___________*/
+#productForm {
+display: flex;
+  flex-direction: column;
+  height: 100%;
+  min-height: 0;
+}
+
+#productForm .form-group {
+  margin-bottom: 1.5rem;
+}
+
+#productForm .form-group label {
+  display: block;
+  font-size: 1.2rem;
+  margin-bottom: 0.8rem;
+  color: var(--primary-color);
+  font-weight: 600;
+}
+
+#productForm .form-group input,
+#productForm .form-group select {
+  width: 100%;
+  padding: 1rem;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid var(--border-color);
+  border-radius: 10px;
+  color: var(--text-main);
+  font-size: 1.4rem;
+  outline: none;
+}
+
+#productForm .form-group select {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 24 24' stroke='%23818cf8'%3E%3Cpath stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M19 9l-7 7-7-7'%3E%3C/path%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 1rem center;
+  background-size: 1.5rem;
+  appearance: none;
+  padding-right: 3rem;
+  cursor: pointer;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+}
+
+#productForm .form-group select option {
+  background-color: var(--table-header);
+  color: var(--text-main);
+}
+
+#productForm .form-group select:focus {
+  border-color: var(--primary-color);
+}
+
+#productForm .form-group input[type="date"] {
+  position: relative;
+  cursor: pointer;
+}
+
+.form-group input[type="date"]::-webkit-calendar-picker-indicator {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 24 24' stroke='%23818cf8'%3E%3Cpath stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z'%3E%3C/path%3E%3C/svg%3E");
+  background-size: 1.5rem;
+  cursor: pointer;
+  filter: drop-shadow(0px 0px 2px rgba(0,0,0,0.5));
+}
+
+.form-group input:focus {
+  border-color: var(--primary-color);
+}
+
+
+
+/* >>>>>>>>>> FOOTER >>>>>>>>>> */
+.modal-edit-product-content .footer {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  margin-top: 2rem;
+}
+
+.modal-edit-product-content .footer .btn-submit {
+  background: var(--btn-bg);
+  color: var(--text-main);
+  border: 1px solid var(--border-color);
+  padding: 1.5rem;
+  border-radius: 10px;
+  cursor: pointer;
+  font-weight: 600;
+  font-size: 1.3rem;
+}
+
+.modal-edit-product-content .footer .btn-submit:hover { 
+  filter: brightness(1.1);
+}
+
