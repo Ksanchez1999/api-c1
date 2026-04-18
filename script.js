@@ -1,4 +1,24 @@
 
+//  _____________________________ FUNCTIONS _____________________________
+const login = async (user, pass) => {
+  const response = await fetch("https://pagofacilvzla.com/api-c1/login", {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json"
+    },
+    body: JSON.stringify({ user, pass })
+  });
+
+  const data = await response.json();
+  if (data.token) {
+    localStorage.setItem("token", data.token);
+  }
+};
+
+
+
+
+
 //  _____________________________ THEME TOGGLE  _____________________________
 const themeToggle = document.createElement("button");
 themeToggle.className = "btn-theme-toggle";
@@ -43,6 +63,33 @@ loginContainer.innerHTML = `
 `;
 
 document.body.appendChild(loginContainer);
+
+
+// ================ SUBMIT ================
+const form = loginContainer.querySelector('.login-form');
+
+form.addEventListener('submit', async (e) => {
+  e.preventDefault();
+  const btn = form.querySelector('.login-button');
+  btn.disabled = true;
+
+  const user = form.querySelectorAll('input')[0].value;
+  const pass = form.querySelectorAll('input')[1].value;
+
+  console.log("Intentando conectar con el VPS...");
+  await login(user, pass);
+  
+  if (localStorage.getItem('token')) {
+    window.location.href = 'standard-user/index.html'; 
+  } else {
+    btn.disabled = false;
+    alert("Error en el login. Revisa tus credenciales.");
+  }
+});
+
+
+
+
 
 
 
