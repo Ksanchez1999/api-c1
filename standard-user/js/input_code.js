@@ -82,4 +82,17 @@ barcodeForm.addEventListener('submit', (e) => {
 // Seguro de Foco
 main.addEventListener('click', () => inputCode.focus());
 
+
+
+
+
+//  ___________________ LINK TO LOGIN ___________________
+const linkToLogin = document.createElement("a");
+linkToLogin.className = "linkToLogin";
+linkToLogin.textContent = 'Login';
+linkToLogin.href = '../index.html';
+
+main.appendChild(linkToLogin);
+
+
 document.body.appendChild(main);

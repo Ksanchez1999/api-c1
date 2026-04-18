@@ -43,3 +43,13 @@ loginContainer.innerHTML = `
 `;
 
 document.body.appendChild(loginContainer);
+
+
+
+//  _____________________________ LINK TO STANDARD USER _____________________________
+const linkToStandardtUser = document.createElement("a");
+linkToStandardtUser.className = "linkToStandardtUser";
+linkToStandardtUser.textContent = 'Usuario estándar';
+linkToStandardtUser.href = 'standard-user/index.html';
+
+loginContainer.appendChild(linkToStandardtUser);

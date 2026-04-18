@@ -1,7 +1,7 @@
 
 /* >>>>>>>>>> VARIABLES >>>>>>>>>> */
 :root {
-  --primary-color: #818cf8;
+  --primary-color: #5767f8;
   --bg-gradient: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
   --glass-bg: rgba(30, 41, 59, 0.8);
   --text-main: #f1f5f9;
@@ -21,10 +21,12 @@ body.light-mode {
 
 
 /* >>>>>>>>>> GENERAL >>>>>>>>>> */
-* {
-  margin: 0;
-  padding: 0;
+*{
+  font-family: "Poppins", sans-serif;
+  font-weight: 300;
   box-sizing: border-box;
+  padding: 0;
+  margin: 0;
 }
 
 html {
@@ -42,7 +44,6 @@ body {
   align-items: center;
   justify-content: center;
   background: var(--bg-gradient);
-  font-family: 'Inter', sans-serif;
 }
 
 
@@ -50,11 +51,12 @@ body {
 /* >>>>>>>>>> BUTTON THEME TOGGLE >>>>>>>>>> */
 .btn-theme-toggle {
   position: fixed;
-  top: 1rem;
-  left: 1rem;
+  width: 50px;
+  height: 37px;
+  top: 10px;
+  left: 10px;
   background: var(--btn-bg);
-  padding: 8px 16px;
-  font-size: 1.3rem;
+  font-size: 14px;
   color: var(--text-main);
   cursor: pointer;
   border: 1px solid var(--border-color);
@@ -153,9 +155,21 @@ body.light-mode .input-group input {
 }
 
 
+/* ** LINK TO STANDARD USER ** */
+.linkToStandardtUser {
+    display: block;
+    font-size: 1.7rem;
+    margin-top: 1.5rem;
+    color: var(--primary-color);
+    font-weight: 600;
+    text-decoration: none;
+    transition: transform 0.2s, filter 0.2s;
+}
 
-
-
+.linkToStandardtUser:hover {
+    filter: brightness(1.1);
+    transform: translateY(-2px);
+}
 
 
 
