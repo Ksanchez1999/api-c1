@@ -20,7 +20,7 @@ let rate = "Cargando...";
 // _____________ LOAD RATE _____________
 try {
   const data = await requestGet("/get-exchange-rate");
-  rate = data.value; 
+  rate = data;
 } catch (error) {
   console.warn("Fallo al obtener tasa real, usando valor por defecto.");
   rate = "0.000";
