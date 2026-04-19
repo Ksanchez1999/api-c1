@@ -1,5 +1,8 @@
+// >>>>>>>>>>>>>>>>>>>>>>>>>>>>> IMPORTS >>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+import { request, showErrorInButton } from '../utils.js';
 
-async function createModalEditExchangeRate(rate){
+
+export async function createModalEditExchangeRate(rate){
 
   // >>>>>>>>>>>>>>>>>>MODAL>>>>>>>>>>>>>>>>>>
   const modal = document.createElement("div");
@@ -18,7 +21,7 @@ async function createModalEditExchangeRate(rate){
 
         <div class="body">
           <div class="form-group">
-            <input type="text" value="${rate}" placeholder="Ej. ${rate}" required>
+            <input type="number" step="0.01" class="newRateInput" value="${rate}" placeholder="Ej. ${rate}" required>
           </div>
         </div>
 
@@ -32,6 +35,56 @@ async function createModalEditExchangeRate(rate){
 
 
   document.body.appendChild(modal);
+
+
+
+
+
+  // >>>>>>>>>>>>>>>>>> SUBMIT >>>>>>>>>>>>>>>>>>
+  const form = modal.querySelector("#productForm");
+
+  form.addEventListener("submit", async (e) => {
+    e.preventDefault();
+
+    const btnSubmit = form.querySelector(".btn-submit");
+    const input = form.querySelector(".newRateInput");
+
+    const newValue = parseFloat(input.value);
+
+    if (isNaN(newValue)) {
+      showErrorInButton(btnSubmit, "VALOR INVÁLIDO");
+      return;
+    }
+
+    btnSubmit.disabled = true;
+    btnSubmit.textContent = "GUARDANDO...";
+
+    try {
+      const response = await request('/update-exchange-rate', 'POST', { 
+        newRate: newValue 
+      });
+
+      if (response.success) {
+        window.location.reload();
+
+      } else {
+        showErrorInButton(btnSubmit);
+      }
+
+    } catch (error) {
+      showErrorInButton(btnSubmit);
+    }
+  });
+
+
+
+
+
+
+
+
+
+
 
   // >>>>>>>>>>>>>>>>>>CLOSE MODAL>>>>>>>>>>>>>>>>>>
   const closeBtn = modal.querySelector(".close-modal");
@@ -47,4 +100,3 @@ async function createModalEditExchangeRate(rate){
   });
 
 }
-

@@ -1,5 +1,6 @@
 // >>>>>>>>>>>>>>>>>>>>>>>>>>>>> IMPORTS >>>>>>>>>>>>>>>>>>>>>>>>>>>>>
-import { requestGet } from '../utils.js';
+import { request } from '../utils.js';
+import { createModalEditExchangeRate } from '../modal-edit-exchange-rate/script.js';
 
 
 
@@ -14,25 +15,16 @@ const token = localStorage.getItem("token");
 
 
 // >>>>>>>>>>>>>>>>>>>>>>>>>>>>> DATA >>>>>>>>>>>>>>>>>>>>>>>>>>>>>
-
 let rate = "Cargando...";
 
 // _____________ LOAD RATE _____________
 try {
-  const data = await requestGet("/get-exchange-rate");
+  const data = await request("/get-exchange-rate");
   rate = data.value;
 } catch (error) {
   console.warn("Fallo al obtener tasa real, usando valor por defecto.");
   rate = "0.000";
 }
-
-
-console.log("rate: ", rate);
-
-
-
-
-
 
 
 
@@ -77,7 +69,7 @@ if (!token) {
   window.location.href = redirectUrl;
 } else {
   try {
-    await requestGet('/verify-token');
+    await request('/verify-token');
   } catch (e) {
     window.location.href = redirectUrl;
   }
