@@ -1,5 +1,5 @@
 //  _____________________________ VARIABLES _____________________________s
-const redirectUrl = "/admin-panel/index.html";
+const redirectUrl = "admin-panel/index.html";
 
 
 
