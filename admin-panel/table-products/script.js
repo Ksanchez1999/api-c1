@@ -1,11 +1,43 @@
+// >>>>>>>>>>>>>>>>>>>>>>>>>>>>> IMPORTS >>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+import { requestGet } from '../utils.js';
+
+
+
+
+
 // >>>>>>>>>>>>>>>>>>>>>>>>>>>>> VARIABLES >>>>>>>>>>>>>>>>>>>>>>>>>>>>>
 const redirectUrl = "/api-c1";
+const token = localStorage.getItem("token");
+
+
+
 
 
 // >>>>>>>>>>>>>>>>>>>>>>>>>>>>> DATA >>>>>>>>>>>>>>>>>>>>>>>>>>>>>
 
-//###TRAER DESDE BD
-let rate = "150.000";
+let rate = "Cargando...";
+
+// _____________ LOAD RATE _____________
+try {
+  const data = await requestGet("/get-exchange-rate");
+  rate = data.value; 
+} catch (error) {
+  console.warn("Fallo al obtener tasa real, usando valor por defecto.");
+  rate = "0.000";
+}
+
+
+console.log("rate: ", rate);
+
+
+
+
+
+
+
+
+
+
 
 
 //###TRAER DESDE BD
@@ -36,29 +68,20 @@ const dataModify = dataFromMySql.map((obj) => {
 });
 
 const tableData = dataModify.map(c => Object.values(c));
-const columnTitles = [ "CÓDIGO", "NOMBRE", "value", "ÚLTIMO COSTO", "FECHA ÚLTIMO COSTO", "PRECIO DE VENTA", "PROVEEDOR"];
+const columnTitles = [ "CÓDIGO", "NOMBRE", "ESTADO", "ÚLTIMO COSTO", "FECHA ÚLTIMO COSTO", "PRECIO DE VENTA", "PROVEEDOR"];
 
 
 
-//  _____________________________ VALIDATE TOKEN  _____________________________
-const token = localStorage.getItem("token");
-
-if (token) {        
-  fetch('https://pagofacilvzla.com/api-c1/verify-token', { headers: { 'Authorization': `Bearer ${token}` } })
-    .then(res => {
-      if(!res.ok) {
-        localStorage.removeItem("token");
-        window.location.href = redirectUrl;
-      }
-    })
-    .catch(() => {
-      console.error("Error de conexión con la API");
-    });
-
-} else{
+// _____________________________ VALIDATE TOKEN _____________________________
+if (!token) {
   window.location.href = redirectUrl;
+} else {
+  try {
+    await requestGet('/verify-token');
+  } catch (e) {
+    window.location.href = redirectUrl;
+  }
 }
-
 
 
 
