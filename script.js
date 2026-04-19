@@ -74,16 +74,28 @@ loginContainer.className = "login-card";
 loginContainer.innerHTML = `
   <h2 class="login-title">BIENVENIDO</h2>
 
-  <form class="login-form">
+  <form class="login-form" action="#">
 
     <div class="input-group">
-      <label>Usuario</label>
-      <input type="text" placeholder="Tu usuario..." required>
+      <label for="username">Usuario</label>
+      <input 
+        type="text" 
+        id="username" 
+        name="username" 
+        autocomplete="username" 
+        placeholder="Tu usuario..." 
+        required>
     </div>
 
     <div class="input-group">
-      <label>Contraseña</label>
-      <input type="password" placeholder="••••••••" required>
+      <label for="password">Contraseña</label>
+      <input 
+        type="password" 
+        id="password" 
+        name="password" 
+        autocomplete="current-password" 
+        placeholder="••••••••" 
+        required>
     </div>
 
     <button type="submit" class="login-button">ENTRAR</button>
