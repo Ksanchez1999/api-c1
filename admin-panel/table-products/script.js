@@ -1,6 +1,8 @@
+// >>>>>>>>>>>>>>>>>>>>>>>>>>>>> VARIABLES >>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+const redirectUrl = "/api-c1";
 
 
-// >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> DATA >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+// >>>>>>>>>>>>>>>>>>>>>>>>>>>>> DATA >>>>>>>>>>>>>>>>>>>>>>>>>>>>>
 
 //###TRAER DESDE BD
 let rate = "150.000";
@@ -38,6 +40,22 @@ const columnTitles = [ "CÓDIGO", "NOMBRE", "value", "ÚLTIMO COSTO", "FECHA ÚL
 
 
 
+//  _____________________________ VALIDATE TOKEN  _____________________________
+const token = localStorage.getItem("token");
+
+if (token) {        
+  fetch('/api-c1/verify-token', { headers: { 'Authorization': `Bearer ${token}` } })
+    .then(res => {
+      if(!res.ok) {
+        localStorage.removeItem("token");
+        window.location.href = redirectUrl;
+      }
+    })
+    .catch(() => {
+      console.error("Error de conexión con la API");
+    });
+}
+
 
 
 
@@ -61,6 +79,26 @@ themeToggle.addEventListener('click', () => {
   localStorage.setItem('theme', isLight ? 'light' : 'dark');
   themeToggle.innerText = isLight ? "🌙" : "☀️";
 });
+
+
+
+//  _____________________________ LOGOUT  _____________________________
+const logout = () => {
+  localStorage.removeItem("token");    
+  btnLogout.textContent = "SALIENDO...";
+    
+  setTimeout(() => {
+    window.location.href = redirectUrl;
+  }, 500);
+};
+
+const btnLogout = document.createElement("button");
+btnLogout.className = "btn-logout";
+btnLogout.textContent = "CERRAR SESIÓN";
+btnLogout.addEventListener("click", logout);
+document.body.appendChild(btnLogout);
+
+
 
 
 

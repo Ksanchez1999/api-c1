@@ -29,7 +29,6 @@ const login = async (user, pass) => {
 
 
 //  _____________________________ VALIDATE TOKEN  _____________________________
-
 const token = localStorage.getItem("token");
 
 if (token) {        

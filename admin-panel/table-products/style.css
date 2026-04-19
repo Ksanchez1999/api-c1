@@ -83,10 +83,38 @@ body {
 }
 
 
+/* >>>>>>>>>> BUTTON LOGOUT >>>>>>>>>> */
+.btn-logout {
+  position: fixed;
+  top: 1rem;
+  right: 1rem;
+  padding: 1rem 2rem;
+  background-color: #c02a2a;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-size: 1.2rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: transform 0.2s, filter 0.2s;
+  z-index: 1000;
+}
+
+.btn-logout:hover {
+  filter: brightness(1.1);
+  transform: translateY(-2px);
+}
+
+.btn-logout:active {
+    transform: translateY(0);
+}
+
+
+
 /* >>>>>>>>>> MAIN CONTAINER >>>>>>>>>> */
 .main-container {
   width: 90%;
-  height: 85vh;
+  height: 70vh;
   margin-top: 0;
   display: flex;
   flex-direction: column;
@@ -138,19 +166,24 @@ body {
 .new-product-button{
   background: var(--btn-bg);
   border: none;
-  padding: 8px 16px;
+  padding: 1rem 2rem;
   font-size: 1.3rem;
   font-weight: 600;
   color: var(--text-main);
   cursor: pointer;
   border: 1px solid var(--border-color);
   border-radius: 10px;
+  transition: transform 0.2s, filter 0.2s;
 }
 
 .new-product-button:hover{
   filter: brightness(1.1);
+  transform: translateY(-2px);
 }
 
+.new-product-button:active {
+    transform: translateY(0);
+}
 
 
 /* >>>>>>>>>> TABLE CONTAINER >>>>>>>>>> */
