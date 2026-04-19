@@ -1,20 +1,50 @@
+//  _____________________________ VARIABLES _____________________________s
+const redirectUrl = "/admin-panel/index.html";
+
+
+
+
 
 //  _____________________________ FUNCTIONS _____________________________
 const login = async (user, pass) => {
-  const response = await fetch("https://pagofacilvzla.com/api-c1/login", {
-    method: "POST",
-    headers: {
-      "Content-Type": "application/json"
-    },
-    body: JSON.stringify({ user, pass })
-  });
+  try {
+    const response = await fetch("https://pagofacilvzla.com/api-c1/login", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ user, pass })
+    });
 
-  const data = await response.json();
-  if (data.token) {
-    localStorage.setItem("token", data.token);
+    const data = await response.json();
+    if (data.token) {
+      localStorage.setItem("token", data.token);
+      return true;
+    }
+    return false;
+  } catch (e) {
+    return false;
   }
 };
 
+
+
+
+//  _____________________________ VALIDATE TOKEN  _____________________________
+
+const token = localStorage.getItem("token");
+
+if (token) {        
+  fetch('/api-c1/verify-token', { headers: { 'Authorization': `Bearer ${token}` } })
+    .then(res => {
+      if(res.ok) {
+        window.location.href = redirectUrl;
+      } else {
+        localStorage.removeItem("token");
+      }
+    })
+    .catch(() => {
+      console.error("Error de conexión con la API");
+    });
+}
 
 
 
@@ -76,14 +106,30 @@ form.addEventListener('submit', async (e) => {
   const user = form.querySelectorAll('input')[0].value;
   const pass = form.querySelectorAll('input')[1].value;
 
-  console.log("Intentando conectar con el VPS...");
-  await login(user, pass);
-  
-  if (localStorage.getItem('token')) {
-    window.location.href = 'standard-user/index.html'; 
+  const success = await login(user, pass);
+  if (success) {
+    window.location.href = redirectUrl;
+
   } else {
-    btn.disabled = false;
-    alert("Error en el login. Revisa tus credenciales.");
+
+    const inputs = form.querySelectorAll('input');
+    
+    // BUTTON FEEDBACK
+    btn.textContent = "DATOS INCORRECTOS";
+    btn.style.backgroundColor = "#ff4d4d"; 
+
+    // INPUTS FEEDBACK
+    inputs.forEach(input => {
+      input.classList.add('input-error', 'shake');
+
+      // CLEAN
+      input.addEventListener('input', () => {
+        input.classList.remove('input-error', 'shake');
+        btn.disabled = false;
+        btn.textContent = "ENTRAR";
+        btn.style.backgroundColor = ""; 
+      }, { once: true });
+    });
   }
 });
 
