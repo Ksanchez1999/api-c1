@@ -44,7 +44,7 @@ const columnTitles = [ "CÓDIGO", "NOMBRE", "value", "ÚLTIMO COSTO", "FECHA ÚL
 const token = localStorage.getItem("token");
 
 if (token) {        
-  fetch('/api-c1/verify-token', { headers: { 'Authorization': `Bearer ${token}` } })
+  fetch('https://pagofacilvzla.com/api-c1/verify-token', { headers: { 'Authorization': `Bearer ${token}` } })
     .then(res => {
       if(!res.ok) {
         localStorage.removeItem("token");
@@ -54,6 +54,9 @@ if (token) {
     .catch(() => {
       console.error("Error de conexión con la API");
     });
+
+} else{
+  window.location.href = redirectUrl;
 }
 
 

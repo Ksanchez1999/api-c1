@@ -32,7 +32,7 @@ const login = async (user, pass) => {
 const token = localStorage.getItem("token");
 
 if (token) {        
-  fetch('/api-c1/verify-token', { headers: { 'Authorization': `Bearer ${token}` } })
+  fetch('https://pagofacilvzla.com/api-c1/verify-token', { headers: { 'Authorization': `Bearer ${token}` } })
     .then(res => {
       if(res.ok) {
         window.location.href = redirectUrl;
