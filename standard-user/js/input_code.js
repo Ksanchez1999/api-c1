@@ -96,3 +96,6 @@ main.appendChild(linkToLogin);
 
 
 document.body.appendChild(main);
+
+
+console.log(localStorage.getItem("token"));
