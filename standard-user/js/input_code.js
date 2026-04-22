@@ -71,19 +71,6 @@ barcodeForm.appendChild(submitButton);
 
 
 // **SUBMIT PROCESS**
-const buttonTreatment = ()=>{
-  inputCode.disabled = false;
-  inputCode.value = "";
-  inputCode.focus();
-}
-
-const processResult = (beepResult, show)=>{
-  playBeep(beepResult);
-  show(response.data);
-  buttonTreatment();
-}
-
-
 
 barcodeForm.addEventListener('submit', async(e) => {
   e.preventDefault();
@@ -99,11 +86,20 @@ barcodeForm.addEventListener('submit', async(e) => {
 
 
       if (response.success) {
-        processResult('success', showProduct);
+        playBeep('success');
+        showProduct(response.data);
+
+        inputCode.disabled = false;
+        inputCode.value = "";
+        inputCode.focus();
 
       } else {
-        processResult('errorx', showMessageNotFound);
-console.log("Cambio");
+        playBeep("errorx");
+        showMessageNotFound(response.data);
+
+        inputCode.disabled = false;
+        inputCode.value = "";
+        inputCode.focus();
 
       }
 
