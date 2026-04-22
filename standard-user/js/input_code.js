@@ -96,7 +96,7 @@ barcodeForm.addEventListener('submit', async(e) => {
     } catch (error) {
       console.error("Error de conexión:", error);
       playBeep('errorx');
-      showMessageNotFound(response.data);
+      showMessageNotFound();
 
       inputCode.disabled = false;
       inputCode.value = "";
