@@ -100,6 +100,8 @@ barcodeForm.addEventListener('submit', async(e) => {
 
       } else {
         processResult('errorx', showMessageNotFound);
+  console.log("Cambio");
+
       }
 
     } catch (error) {
