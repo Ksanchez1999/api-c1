@@ -43,7 +43,7 @@ export function showProduct(data) {
   feedbackModalBody.appendChild(imgContainer);
 
   const imgIco = document.createElement('img');
-  imgIco.src = 'img/check-icon.png';
+  imgIco.src = 'img/storage-icon.png';
   imgIco.alt = 'Check Icon';
   imgContainer.appendChild(imgIco);
 }
