@@ -66,7 +66,17 @@ barcodeForm.appendChild(submitButton);
 
 
 
+
+
+
+
 // **SUBMIT PROCESS**
+const buttonTreatment = ()=>{
+  inputCode.disabled = false;
+  inputCode.value = "";
+  inputCode.focus();
+}
+
 barcodeForm.addEventListener('submit', async(e) => {
   e.preventDefault();
   const barcode = inputCode.value.trim();
@@ -78,12 +88,6 @@ barcodeForm.addEventListener('submit', async(e) => {
       const response = await request('/get-product-by-barcode', 'POST', { 
         barcode
       });
-
-      const buttonTreatment = ()=>{
-        inputCode.disabled = false;
-        inputCode.value = "";
-        inputCode.focus();
-      }
 
       const processResult = (beepResult, show)=>{
         playBeep(beepResult);
