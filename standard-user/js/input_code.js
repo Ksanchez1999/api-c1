@@ -100,15 +100,19 @@ barcodeForm.addEventListener('submit', async(e) => {
         inputCode.disabled = false;
         inputCode.value = "";
         inputCode.focus();
+console.log("else");
 
       }
 
     } catch (error) {
       console.error("Error de conexión:", error);
       playBeep('errorx');
-      buttonTreatment();
-processResult('errorx', showMessageNotFound);
-console.log("Cambio");
+
+      inputCode.disabled = false;
+      inputCode.value = "";
+      inputCode.focus();
+
+console.log("Catch");
 
     }
   }
