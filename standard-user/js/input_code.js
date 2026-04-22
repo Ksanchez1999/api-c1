@@ -77,6 +77,14 @@ const buttonTreatment = ()=>{
   inputCode.focus();
 }
 
+const processResult = (beepResult, show)=>{
+  playBeep(beepResult);
+  show(response.data);
+  buttonTreatment();
+}
+
+
+
 barcodeForm.addEventListener('submit', async(e) => {
   e.preventDefault();
   const barcode = inputCode.value.trim();
@@ -89,11 +97,6 @@ barcodeForm.addEventListener('submit', async(e) => {
         barcode
       });
 
-      const processResult = (beepResult, show)=>{
-        playBeep(beepResult);
-        show(response.data);
-        buttonTreatment();
-      }
 
       if (response.success) {
         processResult('success', showProduct);
