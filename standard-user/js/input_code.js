@@ -100,7 +100,7 @@ barcodeForm.addEventListener('submit', async(e) => {
 
       } else {
         processResult('errorx', showMessageNotFound);
-  console.log("Cambio");
+console.log("Cambio");
 
       }
 
@@ -108,6 +108,9 @@ barcodeForm.addEventListener('submit', async(e) => {
       console.error("Error de conexión:", error);
       playBeep('errorx');
       buttonTreatment();
+processResult('errorx', showMessageNotFound);
+console.log("Cambio");
+
     }
   }
 });
