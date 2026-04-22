@@ -84,7 +84,6 @@ barcodeForm.addEventListener('submit', async(e) => {
         barcode
       });
 
-
       if (response.success) {
         playBeep('success');
         showProduct(response.data);
@@ -92,28 +91,16 @@ barcodeForm.addEventListener('submit', async(e) => {
         inputCode.disabled = false;
         inputCode.value = "";
         inputCode.focus();
-
-      } else {
-        playBeep("errorx");
-        showMessageNotFound(response.data);
-
-        inputCode.disabled = false;
-        inputCode.value = "";
-        inputCode.focus();
-console.log("else");
-
       }
 
     } catch (error) {
       console.error("Error de conexión:", error);
       playBeep('errorx');
+      showMessageNotFound(response.data);
 
       inputCode.disabled = false;
       inputCode.value = "";
       inputCode.focus();
-
-console.log("Catch");
-
     }
   }
 });

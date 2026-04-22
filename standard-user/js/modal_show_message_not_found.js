@@ -4,7 +4,6 @@
 import { createModal } from './general_functions.js';
 
 export function showMessageNotFound() {
-  console.log("Llegó acá");
   const modal = createModal("notFoundModal");
   document.body.appendChild(modal);
 
