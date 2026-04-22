@@ -1,11 +1,18 @@
-//  _____________________________ VARIABLES _____________________________s
+/* ============================================================
+                         VARIABLES
+============================================================ */
 const redirectUrl = "admin-panel/index.html";
 
 
 
 
 
-//  _____________________________ FUNCTIONS _____________________________
+/* ============================================================
+                         FUNCTIONS
+============================================================ */
+
+//______________  FUNCTION: LOGIN  ______________
+
 const login = async (user, pass) => {
   try {
     const response = await fetch("https://pagofacilvzla.com/api-c1/login", {
@@ -28,7 +35,13 @@ const login = async (user, pass) => {
 
 
 
-//  _____________________________ VALIDATE TOKEN  _____________________________
+
+/* ============================================================
+                            GUARD
+============================================================ */
+
+//______________  VALIDATE TOKEN  ______________
+
 const token = localStorage.getItem("token");
 
 if (token) {        
@@ -48,7 +61,13 @@ if (token) {
 
 
 
-//  _____________________________ THEME TOGGLE  _____________________________
+
+/* ============================================================
+                            DOM
+============================================================ */
+
+//______________  THEME TOGGLE  ______________
+
 const themeToggle = document.createElement("button");
 themeToggle.className = "btn-theme-toggle";
 themeToggle.textContent = "☀️";
@@ -67,7 +86,9 @@ themeToggle.addEventListener('click', () => {
 });
 
 
-//  _____________________________ LOGIN CONTAINER _____________________________
+
+// ______________  LOGIN CONTAINER  ______________
+
 const loginContainer = document.createElement("div");
 loginContainer.className = "login-card";
     
@@ -106,7 +127,22 @@ loginContainer.innerHTML = `
 document.body.appendChild(loginContainer);
 
 
-// ================ SUBMIT ================
+
+//______________  LINK TO STANDARD USER  ______________
+
+const linkToStandardtUser = document.createElement("a");
+linkToStandardtUser.className = "linkToStandardtUser";
+linkToStandardtUser.textContent = 'Usuario estándar';
+linkToStandardtUser.href = 'standard-user/index.html';
+
+loginContainer.appendChild(linkToStandardtUser);
+
+
+
+
+
+//=======  LISTENER: SUBMIT PROCESS  =======
+
 const form = loginContainer.querySelector('.login-form');
 
 form.addEventListener('submit', async (e) => {
@@ -122,7 +158,6 @@ form.addEventListener('submit', async (e) => {
     window.location.href = redirectUrl;
 
   } else {
-
     const inputs = form.querySelectorAll('input');
     
     // BUTTON FEEDBACK
@@ -144,16 +179,3 @@ form.addEventListener('submit', async (e) => {
   }
 });
 
-
-
-
-
-
-
-//  _____________________________ LINK TO STANDARD USER _____________________________
-const linkToStandardtUser = document.createElement("a");
-linkToStandardtUser.className = "linkToStandardtUser";
-linkToStandardtUser.textContent = 'Usuario estándar';
-linkToStandardtUser.href = 'standard-user/index.html';
-
-loginContainer.appendChild(linkToStandardtUser);

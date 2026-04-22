@@ -1,5 +1,5 @@
 // >>>>>>>>>>>>>>>>>>>>>>>>>>>>> IMPORTS >>>>>>>>>>>>>>>>>>>>>>>>>>>>>
-import { request, showErrorInButton } from '../utils.js';
+import { request, showErrorInButton } from '../../utils.js';
 
 
 export async function createModalEditExchangeRate(rate){

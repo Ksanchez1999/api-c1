@@ -357,8 +357,34 @@ body.light-mode .table tbody tr:nth-child(even) {
 
 
 
+/* trash */
+.td-trash {
+  text-align: center;
+  width: 50px;
+}
 
+.btn-trash {
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-size: 1.3rem;
+    padding: 8px;
+    border-radius: 8px;
+    transition: all 0.2s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto;
+}
 
+.btn-trash:hover {
+  background-color: rgba(255, 0, 0, 0.1);
+  transform: scale(1.15);
+}
+
+.btn-trash:active {
+  transform: scale(0.9);
+}
 
 
 

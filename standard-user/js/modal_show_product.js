@@ -1,5 +1,13 @@
+/* ============================================================
+                         IMPORTS
+============================================================ */
+import { createModal } from './general_functions.js';
 
-function showProduct() {
+
+export function showProduct(data) {
+
+  let { id, name, sell_price } = data;
+
   const feedbackModal = createModal("feedbackModal");
   document.body.appendChild(feedbackModal);
 
@@ -21,11 +29,11 @@ function showProduct() {
   infoContainer.appendChild(priceContainer);
 
   const titlePrice = document.createElement('h2');
-  titlePrice.textContent = "COCACOLA ZERO 333ML"; //TRAER DESDE VARIABLE ######
+  titlePrice.textContent = name;
   priceContainer.appendChild(titlePrice);
 
   const price = document.createElement('p');
-  price.textContent = "0.50$"; //TRAER DESDE VARIABLE ######
+  price.textContent = `${sell_price}$`;
   priceContainer.appendChild(price);
 
 
@@ -34,11 +42,14 @@ function showProduct() {
   imgContainer.className = "imgContainer";
   feedbackModalBody.appendChild(imgContainer);
 
-  const img = document.createElement('img');
-  img.src = 'https://www.coca-cola.com/content/dam/onexp/co/es/brands/coca-cola/coca-cola-original/ccso_600ml_750x750.png';
-  img.alt = 'Imagen de producto';
-
-  imgContainer.appendChild(img);
+  imgContainer.innerHTML = `
+      <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M20.25 18.375L12 22.5L3.75 18.375V9.375L12 5.25L20.25 9.375V18.375Z" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+        <path d="M3.75 9.375L12 13.5L20.25 9.375" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+        <path d="M12 22.5V13.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+        <path d="M12 5.25V2" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+    `;
 
 }
 

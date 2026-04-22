@@ -1,4 +1,10 @@
-
+/* ============================================================
+                         IMPORTS
+============================================================ */
+import { request } from '../../utils.js';
+import { showMessageNotFound } from './modal_show_message_not_found.js';
+import { showProduct } from './modal_show_product.js';
+import { playBeep } from './sound.js';
 
 // >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> MAIN >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
 const main = document.createElement("main");
@@ -55,29 +61,56 @@ submitButton.type = 'submit';
 submitButton.innerText = 'Buscar';
 barcodeForm.appendChild(submitButton);
 
-// **SUBMIT PROCESS**
-barcodeForm.addEventListener('submit', (e) => {
-  e.preventDefault();
-  const code = inputCode.value.trim();
 
-  if (code !== "") {
+
+
+
+
+// **SUBMIT PROCESS**
+barcodeForm.addEventListener('submit', async(e) => {
+  e.preventDefault();
+  const barcode = inputCode.value.trim();
+
+  if (barcode !== "") {
     inputCode.disabled = true;
 
-    setTimeout(() => {
-      if (code === "1") {
-        playBeep('success');
-        showProduct();
-      } else {
-        playBeep('errorx');
-        showMessageNotFound();
+    try {
+      const response = await request('/get-product-by-barcode', 'POST', { 
+        barcode
+      });
+
+      const buttonTreatment = ()=>{
+        inputCode.disabled = false;
+        inputCode.value = "";
+        inputCode.focus();
       }
 
-      inputCode.disabled = false;
-      inputCode.value = "";
-      inputCode.focus();
-    }, 150); 
+      const processResult = (beepResult, show)=>{
+        playBeep(beepResult);
+        show(response.data);
+        buttonTreatment();
+      }
+
+      if (response.success) {
+        processResult('success', showProduct);
+
+      } else {
+        processResult('errorx', showMessageNotFound);
+      }
+
+    } catch (error) {
+      console.error("Error de conexión:", error);
+      playBeep('errorx');
+      buttonTreatment();
+    }
   }
 });
+
+
+
+
+
+
 
 // Seguro de Foco
 main.addEventListener('click', () => inputCode.focus());

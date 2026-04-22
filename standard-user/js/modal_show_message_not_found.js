@@ -1,5 +1,9 @@
+/* ============================================================
+                         IMPORTS
+============================================================ */
+import { createModal } from './general_functions.js';
 
-function showMessageNotFound() {
+export function showMessageNotFound() {
   const modal = createModal("notFoundModal");
   document.body.appendChild(modal);
 

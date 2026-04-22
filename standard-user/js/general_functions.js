@@ -2,7 +2,7 @@
 
 // ______________________________FUNTION: CREATE MODAL______________________________
 
-function createModal(modalClass){
+export function createModal(modalClass){
   const modal = document.createElement('div');
   modal.className = modalClass;
 

@@ -1,5 +1,5 @@
 
-function playBeep(type) {
+export function playBeep(type) {
   const audioCtx = new (window.AudioContext || window.webkitAudioContext)();
   const oscillator = audioCtx.createOscillator();
   const gainNode = audioCtx.createGain();
