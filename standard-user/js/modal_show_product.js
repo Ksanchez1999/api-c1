@@ -29,7 +29,7 @@ export function showProduct(data) {
   infoContainer.appendChild(priceContainer);
 
   const titlePrice = document.createElement('h2');
-  titlePrice.textContent = name;
+  titlePrice.textContent = name.toUpperCase();
   priceContainer.appendChild(titlePrice);
 
   const price = document.createElement('p');
