@@ -312,7 +312,6 @@ body {
 
 .table tbody td:last-child {
   cursor: default;
-  background-color: inherit; 
 }
 
 
