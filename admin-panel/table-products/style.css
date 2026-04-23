@@ -301,7 +301,7 @@ body {
 }
 
 .table tbody td:not(:nth-child(3)):not(:last-child):hover {
-  background-color: var(--border-color);
+  background-color: inherit;
   cursor: pointer;
   transition: background-color 0.2s ease;
 }
