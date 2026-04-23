@@ -270,8 +270,8 @@ body {
   outline: none;
 }
 
-.table .tr-2-head th input:last-child {
-  background-color: #009938;
+.table .tr-2-head th:last-child input {
+  display: none;
 }
 
 
