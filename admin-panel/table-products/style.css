@@ -249,7 +249,11 @@ body {
 
 .table th:last-child, 
 .table td:last-child {
-  padding-right: 32px; 
+  padding-right: 32px;
+}
+
+.table td:last-child {
+  background-color: inherit;
 }
 
 .table .tr-1-head th {
@@ -302,12 +306,6 @@ body {
 }
 
 .table tbody td:not(:nth-child(3)):hover {
-  background-color: var(--border-color);
-  cursor: pointer;
-  transition: background-color 0.2s ease;
-}
-
-.table tbody td:not(:nth-child(8)):hover {
   background-color: var(--border-color);
   cursor: pointer;
   transition: background-color 0.2s ease;
