@@ -121,7 +121,7 @@ main.addEventListener('click', () => inputCode.focus());
 //  ___________________ LINK TO LOGIN ___________________
 const linkToLogin = document.createElement("a");
 linkToLogin.className = "linkToLogin";
-linkToLogin.textContent = 'IR AL LOGIN';
+linkToLogin.textContent = 'LOGIN';
 linkToLogin.href = '../index.html';
 
 main.appendChild(linkToLogin);

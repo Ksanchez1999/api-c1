@@ -271,7 +271,7 @@ body {
 }
 
 .table .tr-2-head th input:last-child {
-  display: none;
+  background-color: #009938;
 }
 
 
