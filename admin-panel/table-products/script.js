@@ -5,7 +5,7 @@ import { request, cleanNumericValue } from '../../utils.js';
 import { createModalEditExchangeRate } from '../modal-edit-exchange-rate/script.js';
 import { createModalEditProduct } from '../modal-edit-product/script.js';
 import { createModalNewProduct } from '../modal-new-product/script.js';
-import { createModalConfirm } from '../modal-confirm/script.js';
+import { createModalConfirm } from '../modal-confirm/modal-confirm.js';
 
 
 /* ============================================================
@@ -15,7 +15,7 @@ const REDIRECT_URL = "/api-c1";
 const EXCHANGE_RATE_URL = "/get-exchange-rate";
 const DATA_TABLE_URL = "/get-data-for-table-of-products";
 const FILTERED_DATA_TABLE_URL = "/get-filtered-data-for-table-of-products";
-const DELETE_PRODUCT_URL = "/delete-product"; //##### CREAR
+const DELETE_PRODUCT_URL = "/delete-product";
 
 const TOKEN = localStorage.getItem("token");
 
