@@ -66,19 +66,19 @@
   flex-direction: column;
   gap: 20px;
   height: 80%;
-  width: 60%;
+  width: 55%;
   z-index: 20;
 }
 
 .infoContainer h2{
-  font-size: 4rem;
+  font-size: 5.5rem;
   color: #fff;
   font-weight: 700;
 }
 
 .infoContainer div{
   background-color: #fff;
-  padding: 11rem 0;
+  padding: 9rem 0;
   width: 100%;
   display: flex;
   justify-content: center;
@@ -88,13 +88,13 @@
 }
 
 .infoContainer div h2{
-  font-size: 5.2rem;
+  font-size: 7.5rem;
   color: #000;
   font-weight: 500;
 }
 
 .infoContainer div p{
-  font-size: 9rem;
+  font-size: 11rem;
   color: red;
   font-weight: 800;
 }
