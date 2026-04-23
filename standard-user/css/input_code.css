@@ -112,7 +112,7 @@ main{
 
 /* **BUTTON** */
 .submitButton {
-  padding: 2rem 4rem;
+  padding: 2.15rem 4rem;
   font-size: 3rem;
   margin-left: 1rem;
   cursor: pointer;
@@ -132,7 +132,7 @@ main{
     position: fixed;
     bottom: 1rem;
     right: 1rem;
-    font-size: 1.7rem;
+    font-size: 2.4rem;
     margin-top: 1.5rem;
     color: var(--text-main);
     font-weight: 600;
