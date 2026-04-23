@@ -270,6 +270,12 @@ body {
   outline: none;
 }
 
+.table .tr-2-head th input:last-child {
+  display: none;
+}
+
+
+
 .table .tr-2-head th {
   padding: 0;
   top: 53px;
