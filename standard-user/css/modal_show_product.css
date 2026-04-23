@@ -78,7 +78,7 @@
 
 .infoContainer div{
   background-color: #fff;
-  padding: 13rem 23rem;
+  width: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -87,13 +87,13 @@
 }
 
 .infoContainer div h2{
-  font-size: 4.2rem;
+  font-size: 5.2rem;
   color: #000;
   font-weight: 500;
 }
 
 .infoContainer div p{
-  font-size: 7rem;
+  font-size: 9rem;
   color: red;
   font-weight: 800;
 }
@@ -141,7 +141,7 @@
   .infoContainer {
     width: 35rem;
     order: 2;
-    height: 40%;
+    height: 60%;
   }
 
   .infoContainer div {
