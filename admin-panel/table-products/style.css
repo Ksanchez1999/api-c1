@@ -363,6 +363,10 @@ body.light-mode .table tbody tr:nth-child(even) {
   width: 50px;
 }
 
+.td-trash:hover {
+  background: inherit;
+}
+
 .btn-trash {
     background: none;
     border: none;

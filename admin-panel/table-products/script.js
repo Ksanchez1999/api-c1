@@ -28,7 +28,7 @@ const TOKEN = localStorage.getItem("token");
 ============================================================ */
 
 let timerForApplyFilter;
-let columnTitles = [ "CÓDIGO", "NOMBRE", "ESTADO", "ÚLTIMO COSTO", "FECHA ÚLTIMO COSTO", "PRECIO DE VENTA", "PROVEEDOR"];
+let columnTitles = [ "CÓDIGO", "NOMBRE", "ESTADO", "ÚLTIMO COSTO", "FECHA ÚLTIMO COSTO", "PRECIO DE VENTA", "PROVEEDOR", ""];
 
 
 
