@@ -66,7 +66,7 @@
   flex-direction: column;
   gap: 20px;
   height: 80%;
-  width: 40%;
+  width: 60%;
   z-index: 20;
 }
 
@@ -78,7 +78,7 @@
 
 .infoContainer div{
   background-color: #fff;
-  padding: 13rem 0;
+  padding: 11rem 0;
   width: 100%;
   display: flex;
   justify-content: center;
