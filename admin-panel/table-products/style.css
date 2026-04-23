@@ -247,9 +247,6 @@ body {
   z-index: 10;
 }
 
-.table .td-trash:hover {
-  background-color: inherit;
-}
 
 .table .tr-1-head th {
   top: 0;
@@ -312,7 +309,7 @@ body {
 
 .table tbody td:last-child {
   cursor: default;
-  background-color: inherit !important;
+  background-color: transparent !important; 
 }
 
 
@@ -362,10 +359,6 @@ body.light-mode .table tbody tr:nth-child(even) {
 .td-trash {
   text-align: center;
   width: 50px;
-}
-
-.td-trash:hover {
-  background: inherit;
 }
 
 .btn-trash {
