@@ -78,7 +78,7 @@
 
 .infoContainer div{
   background-color: #fff;
-  padding: 9rem 0;
+  padding: 7rem 0;
   width: 100%;
   display: flex;
   justify-content: center;
@@ -88,16 +88,25 @@
 }
 
 .infoContainer div h2{
-  font-size: 7.5rem;
+  font-size: 6rem;
   color: #000;
   font-weight: 500;
 }
 
 .infoContainer div p{
-  font-size: 11rem;
-  color: red;
   font-weight: 800;
 }
+
+.infoContainer div .priceInDollars {
+  font-size: 9rem;
+  color: red;
+}
+
+.infoContainer div .priceInBs {
+  font-size: 8rem;
+  color: #00ff4c;
+}
+
 
 
 
