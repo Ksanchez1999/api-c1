@@ -1,3 +1,4 @@
+import { request } from '../../utils.js';
 
 
 // ______________________________FUNTION: CREATE MODAL______________________________
@@ -43,4 +44,14 @@ export function createModal(modalClass){
 }
 
 
+export async function getExchangeRate(){
+  try {
+    const data = await request("/get-exchange-rate");
+
+    return data.value;
+
+  } catch (error) {
+    return "0.000";
+  }
+}
 

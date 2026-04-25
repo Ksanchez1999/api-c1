@@ -1,12 +1,13 @@
 /* ============================================================
                          IMPORTS
 ============================================================ */
-import { createModal } from './general_functions.js';
+import { createModal, getExchangeRate } from './general_functions.js';
 
 
-export function showProduct(data) {
+export async function showProduct(data) {
 
   let { id, name, sell_price } = data;
+  let rate = await getExchangeRate();
 
   const feedbackModal = createModal("feedbackModal");
   document.body.appendChild(feedbackModal);
@@ -32,9 +33,15 @@ export function showProduct(data) {
   titlePrice.textContent = name.toUpperCase();
   priceContainer.appendChild(titlePrice);
 
-  const price = document.createElement('p');
-  price.textContent = `${sell_price}$`;
-  priceContainer.appendChild(price);
+  const priceInDollars = document.createElement('p');
+  priceInDollars.className = `priceInDollars`;
+  priceInDollars.textContent = `${sell_price}$`;
+  priceContainer.appendChild(priceInDollars);
+
+  const priceInBs = document.createElement('p');
+  priceInBs.className = `priceInBs`;
+  priceInBs.textContent = `Bs. ${sell_price * rate}`;
+  priceContainer.appendChild(priceInBs);
 
 
   // _____IMG CONTAINER_____
