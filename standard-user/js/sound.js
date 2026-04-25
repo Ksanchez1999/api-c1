@@ -1,6 +1,11 @@
+const AudioContext = window.AudioContext || window.webkitAudioContext;
+const audioCtx = new AudioContext();
 
 export function playBeep(type) {
-  const audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+  if (audioCtx.state === 'suspended') {
+    audioCtx.resume();
+  }
+
   const oscillator = audioCtx.createOscillator();
   const gainNode = audioCtx.createGain();
 
@@ -15,8 +20,13 @@ export function playBeep(type) {
     oscillator.type = 'square';
   }
 
-  oscillator.start();
-  gainNode.gain.exponentialRampToValueAtTime(0.0001, audioCtx.currentTime + 0.2);
-  setTimeout(() => { oscillator.stop(); audioCtx.close(); }, 200);
-}
+  const now = audioCtx.currentTime;
 
+  gainNode.gain.setValueAtTime(1, now);
+  
+  gainNode.gain.exponentialRampToValueAtTime(0.0001, now + 0.2);
+
+  oscillator.start(now);
+  
+  oscillator.stop(now + 0.2); 
+}
