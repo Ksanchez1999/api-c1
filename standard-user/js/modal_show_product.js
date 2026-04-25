@@ -40,7 +40,7 @@ export async function showProduct(data) {
 
   const priceInBs = document.createElement('p');
   priceInBs.className = `priceInBs`;
-  priceInBs.textContent = `Bs. ${sell_price * rate}`;
+  priceInBs.textContent = `[Bs. ${sell_price * rate}]`;
   priceContainer.appendChild(priceInBs);
 
 

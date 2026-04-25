@@ -71,7 +71,7 @@
 }
 
 .infoContainer h2{
-  font-size: 5.5rem;
+  font-size: 4.5rem;
   color: #fff;
   font-weight: 700;
 }
@@ -88,7 +88,7 @@
 }
 
 .infoContainer div h2{
-  font-size: 6rem;
+  font-size: 5rem;
   color: #000;
   font-weight: 500;
 }
@@ -98,13 +98,13 @@
 }
 
 .infoContainer div .priceInDollars {
-  font-size: 9rem;
-  color: red;
+  font-size: 11rem;
+  color: #00a632;
 }
 
 .infoContainer div .priceInBs {
-  font-size: 8rem;
-  color: #00ff4c;
+  font-size: 6rem;
+  color: #ff0000;
 }
 
 
