@@ -74,12 +74,11 @@
   font-size: 4.5rem;
   color: #fff;
   font-weight: 700;
-  height: 80%;
+  height: 20%;
 }
 
 .infoContainer div{
   background-color: #fff;
-  padding: 7rem 0;
   width: 100%;
   display: flex;
   justify-content: center;
