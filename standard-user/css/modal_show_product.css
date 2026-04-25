@@ -179,7 +179,11 @@
     font-size: 3.5rem;
   }
 
-  .infoContainer, .imgContainer {
+ .imgContainer{
+    display: none;
+  }
+
+  .infoContainer {
     width: 90%;
     height: 42%;
   }
