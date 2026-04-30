@@ -246,7 +246,8 @@ throw new Error('Error al descargar');
 
   } catch (error) {
     console.error(error);
-    showErrorInButton(btn);
+    showErrorInButton(btn, "ERROR", "DESCARGAR");
+    throw error;
   }
 }
 
@@ -389,14 +390,18 @@ downloadButton.className = "downloadButton";
 tableContainer.appendChild(downloadButton);
 
 
-downloadButton.addEventListener("click",  async() => {
+downloadButton.addEventListener("click", async () => {
   downloadButton.disabled = true;
   downloadButton.textContent = "DESCARGANDO...";
-  await downloadProducts(downloadButton, currentTableData);
-  downloadButton.disabled = false;
-  downloadButton.textContent = "DESCARGAR";
+  
+  try {
+    await downloadProducts(downloadButton, currentTableData);
+    
+    downloadButton.disabled = false;
+    downloadButton.textContent = "DESCARGAR";
+  } catch (err) {
+  }
 });
-
 
 
 
