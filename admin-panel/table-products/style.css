@@ -393,7 +393,6 @@ body.light-mode .table tbody tr:nth-child(even) {
   position: fixed;
   bottom: 1rem;
   right: 1rem;
-
   background: var(--btn-bg);
   border: none;
   padding: 1rem 2rem;
@@ -408,8 +407,8 @@ body.light-mode .table tbody tr:nth-child(even) {
 
 
 .downloadButton:hover{
-  cursor: pointer;
-  background-color: #ffff54;
+  filter: brightness(1.1);
+  transform: translateY(-2px);
 }
 
 
