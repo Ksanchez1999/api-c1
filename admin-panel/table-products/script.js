@@ -28,7 +28,7 @@ const TOKEN = localStorage.getItem("token");
 ============================================================ */
 
 let timerForApplyFilter;
-let columnTitles = [ "CÓDIGO", "NOMBRE", "ESTADO", "ÚLTIMO COSTO", "FECHA ÚLTIMO COSTO", "PRECIO DE VENTA", "PROVEEDOR", ""];
+let columnTitles = [ "ID", "CÓDIGO", "NOMBRE", "ESTADO", "ÚLTIMO COSTO", "FECHA ÚLTIMO COSTO", "PRECIO DE VENTA", "PROVEEDOR", ""];
 
 
 
@@ -139,8 +139,6 @@ function renderBodyTable(data) {
     const tr = document.createElement("tr");
 
     array.forEach((text, index) => {
-      if (index === 0) return;
-
       const td = document.createElement("td");
       td.className = `td${index}`;
 
@@ -169,6 +167,8 @@ function renderBodyTable(data) {
       td.textContent = displayValue;
 
       tr.appendChild(td);
+
+      if (index === 0) return; // ID
 
       td.addEventListener('click', function() { createModalEditProduct(text, index, array); });
 
@@ -338,9 +338,6 @@ for (let i = 0; i < columnTitles.length; i++) {
 const tbody = document.createElement("tbody");
 table.appendChild(tbody);
 
-
-
-
 document.body.appendChild(mainContainer);
 
 
@@ -376,8 +373,3 @@ try {
 } catch (error) {
   console.warn("Fallo al obtener los datos de la tabla.");
 }
-
-
-
-
-
