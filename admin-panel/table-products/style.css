@@ -297,13 +297,13 @@ body {
   cursor: pointer;
 }
 
-.table tbody td:not(:nth-child(3)):not(:last-child):hover {
+.table tbody td:not(:nth-child(4)):not(:last-child):hover {
   background-color: var(--border-color);
   cursor: pointer;
   transition: background-color 0.2s ease;
 }
 
-.table tbody td:nth-child(3) {
+.table tbody td:nth-child(4) {
   cursor: default;
 }
 
