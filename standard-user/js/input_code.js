@@ -74,14 +74,14 @@ barcodeForm.appendChild(submitButton);
 
 barcodeForm.addEventListener('submit', async(e) => {
   e.preventDefault();
-  const barcode = inputCode.value.trim();
+  const barcodeOrId = inputCode.value.trim();
 
-  if (barcode !== "") {
+  if (barcodeOrId !== "") {
     inputCode.disabled = true;
 
     try {
-      const response = await request('/get-product-by-barcode', 'POST', { 
-        barcode
+      const response = await request('/get-product-by-barcode-or-id', 'POST', { 
+        barcodeOrId
       });
 
       if (response.success) {
