@@ -246,7 +246,7 @@ throw new Error('Error al descargar');
 
   } catch (error) {
     console.error(error);
-    showErrorInButton(btn, "ERROR", "DESSSSCARGAR");
+    showErrorInButton(btn);
   }
 }
 
