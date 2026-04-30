@@ -188,6 +188,7 @@ body {
 
 /* >>>>>>>>>> TABLE CONTAINER >>>>>>>>>> */
 .table-container {
+  position: relative;
   flex: 1;
   min-height: 0;
   background: var(--glass-bg);
@@ -386,6 +387,25 @@ body.light-mode .table tbody tr:nth-child(even) {
 }
 
 
+
+/* **DOWNLOAD BUTTON** */
+.downloadButton{
+  position: absolute;
+  bottom: 10px;
+  right: 10px;
+  background-color: #ff0;
+  color: #000;
+  padding: 8px 17px;
+  border: none;
+  font-size: 1.2rem;
+  transition: background-color 0.2s ease;
+}
+
+
+.downloadButton:hover{
+  cursor: pointer;
+  background-color: #ffff54;
+}
 
 
 

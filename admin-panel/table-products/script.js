@@ -1,7 +1,7 @@
 /* ============================================================
                          IMPORTS
 ============================================================ */
-import { request, cleanNumericValue } from '../../utils.js';
+import { request, cleanNumericValue, showErrorInButton } from '../../utils.js';
 import { createModalEditExchangeRate } from '../modal-edit-exchange-rate/script.js';
 import { createModalEditProduct } from '../modal-edit-product/script.js';
 import { createModalNewProduct } from '../modal-new-product/script.js';
@@ -16,6 +16,7 @@ const EXCHANGE_RATE_URL = "/get-exchange-rate";
 const DATA_TABLE_URL = "/get-data-for-table-of-products";
 const FILTERED_DATA_TABLE_URL = "/get-filtered-data-for-table-of-products";
 const DELETE_PRODUCT_URL = "/delete-product";
+const DOWNLOAD_PRODUCTS_URL = "/download-products";
 
 const TOKEN = localStorage.getItem("token");
 
@@ -26,10 +27,9 @@ const TOKEN = localStorage.getItem("token");
 /* ============================================================
                        VARIABLES
 ============================================================ */
-
 let timerForApplyFilter;
 let columnTitles = [ "ID", "CÓDIGO", "NOMBRE", "ESTADO", "ÚLTIMO COSTO", "FECHA ÚLTIMO COSTO", "PRECIO DE VENTA", "PROVEEDOR", ""];
-
+let currentTableData = [];
 
 
 
@@ -96,7 +96,7 @@ function applyFilter() {
       const tableData = dataModify(tableDataRaw);
       renderBodyTable(tableData);
       tbody.style.opacity = "1";
-
+      currentTableData = tableDataRaw;
     } catch (error) {
       console.error("Error", error.message);
       tbody.style.opacity = "1";
@@ -209,6 +209,42 @@ function renderBodyTable(data) {
   });
 }
 
+
+
+//_____________  DOWNLOAD PRODUCTS  _____________
+
+async function downloadProducts(btn, dataRaw) {
+  try {
+    const token = localStorage.getItem("token");
+    
+    const response = await fetch(`${BASE_URL}${DOWNLOAD_PRODUCTS_URL}`, {
+      method: 'POST',
+      headers: {
+        'Authorization': `Bearer ${token}`,
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({ data: dataRaw })
+    });
+
+    if (!response.ok) throw new Error('Error al descargar');
+
+    const blob = await response.blob();
+    const url = window.URL.createObjectURL(blob);
+
+    const a = document.createElement("a");
+    a.href = url;
+    const date = new Date().toISOString().split('T')[0];
+    a.download = `Productos_${date}.xlsx`;
+    document.body.appendChild(a);
+    a.click();
+    a.remove();
+    window.URL.revokeObjectURL(url);
+
+  } catch (error) {
+    console.error(error);
+    showErrorInButton(btn, "ERROR", "Descargar");
+  }
+}
 
 
 
@@ -342,6 +378,25 @@ document.body.appendChild(mainContainer);
 
 
 
+// _____________ DOWNLOAD_BUTTON _____________
+const downloadButton = document.createElement("button");
+downloadButton.textContent = "Descargar";
+downloadButton.className = "downloadButton";
+tableContainer.appendChild(downloadButton);
+
+
+downloadButton.addEventListener("click",  async() => {
+  downloadButton.disabled = true;
+  downloadButton.textContent = "Generando...";
+  await downloadProducts(downloadButton, currentTableData);
+  downloadButton.disabled = false;
+  downloadButton.textContent = "Descargar";
+});
+
+
+
+
+
 
 
 /* ============================================================
@@ -369,7 +424,9 @@ try {
   tableDataRaw = await request(DATA_TABLE_URL);
   const tableData = dataModify(tableDataRaw);
   renderBodyTable(tableData);
+  currentTableData = tableDataRaw;
 
 } catch (error) {
   console.warn("Fallo al obtener los datos de la tabla.");
 }
+
