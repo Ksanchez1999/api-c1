@@ -242,7 +242,7 @@ async function downloadProducts(btn, dataRaw) {
 
   } catch (error) {
     console.error(error);
-    showErrorInButton(btn, "ERROR", "Descargar");
+    showErrorInButton(btn, "ERROR", "DESCARGAR");
   }
 }
 
@@ -380,7 +380,7 @@ document.body.appendChild(mainContainer);
 
 // _____________ DOWNLOAD_BUTTON _____________
 const downloadButton = document.createElement("button");
-downloadButton.textContent = "Descargar";
+downloadButton.textContent = "DESCARGAR";
 downloadButton.className = "downloadButton";
 tableContainer.appendChild(downloadButton);
 
@@ -389,8 +389,8 @@ downloadButton.addEventListener("click",  async() => {
   downloadButton.disabled = true;
   downloadButton.textContent = "Generando...";
   await downloadProducts(downloadButton, currentTableData);
-  downloadButton.disabled = false;
-  downloadButton.textContent = "Descargar";
+//  downloadButton.disabled = false;
+//  downloadButton.textContent = "DESCARGAR";
 });
 
 
