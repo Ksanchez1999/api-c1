@@ -1,7 +1,7 @@
 /* ============================================================
                          IMPORTS
 ============================================================ */
-import { request, cleanNumericValue, showErrorInButton } from '../../utils.js';
+import { BASE_URL, request, cleanNumericValue, showErrorInButton } from '../../utils.js';
 import { createModalEditExchangeRate } from '../modal-edit-exchange-rate/script.js';
 import { createModalEditProduct } from '../modal-edit-product/script.js';
 import { createModalNewProduct } from '../modal-new-product/script.js';

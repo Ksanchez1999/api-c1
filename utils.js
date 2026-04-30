@@ -1,5 +1,5 @@
 // >>>>>>>>>>>>>>>>>>>>>>>>>>>>> VARIABLES >>>>>>>>>>>>>>>>>>>>>>>>>>>>>
-const BASE_URL = 'https://pagofacilvzla.com/api-c1';
+export const BASE_URL = 'https://pagofacilvzla.com/api-c1';
 
 
 
