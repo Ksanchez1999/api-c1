@@ -87,13 +87,14 @@
   border-radius: 15px;
   height: 80%;
   padding: 0 1rem;
+  overflow: hidden;
 }
 
 .infoContainer div h2{
   font-size: 5rem;
   color: #000;
   font-weight: 500;
-  
+  max-width: 100%;
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
