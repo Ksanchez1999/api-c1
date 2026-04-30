@@ -216,7 +216,11 @@ function renderBodyTable(data) {
 async function downloadProducts(btn, dataRaw) {
   try {
     const token = localStorage.getItem("token");
-    
+
+
+throw new Error('Error al descargar');
+
+
     const response = await fetch(`${BASE_URL}${DOWNLOAD_PRODUCTS_URL}`, {
       method: 'POST',
       headers: {
@@ -242,7 +246,7 @@ async function downloadProducts(btn, dataRaw) {
 
   } catch (error) {
     console.error(error);
-    showErrorInButton(btn, "ERROR", "DESCARGAR");
+    showErrorInButton(btn, "ERROR", "DESSSSCARGAR");
   }
 }
 
@@ -387,7 +391,7 @@ tableContainer.appendChild(downloadButton);
 
 downloadButton.addEventListener("click",  async() => {
   downloadButton.disabled = true;
-  downloadButton.textContent = "PROCESANDO...";
+  downloadButton.textContent = "DESCARGANDO...";
   await downloadProducts(downloadButton, currentTableData);
   downloadButton.disabled = false;
   downloadButton.textContent = "DESCARGAR";
