@@ -387,10 +387,10 @@ tableContainer.appendChild(downloadButton);
 
 downloadButton.addEventListener("click",  async() => {
   downloadButton.disabled = true;
-  downloadButton.textContent = "Generando...";
+  downloadButton.textContent = "PROCESANDO...";
   await downloadProducts(downloadButton, currentTableData);
-//  downloadButton.disabled = false;
-//  downloadButton.textContent = "DESCARGAR";
+  downloadButton.disabled = false;
+  downloadButton.textContent = "DESCARGAR";
 });
 
 
