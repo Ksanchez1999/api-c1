@@ -176,12 +176,8 @@
     text-align: center;
   }
   
-  .infoContainer div .priceInDollars{
-    font-size: 7rem;
-  }
-
   .infoContainer div .priceInBs{
-    font-size: 3.5rem;
+    font-size: 6.5rem;
   }
 
  .imgContainer{
