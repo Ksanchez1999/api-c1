@@ -33,14 +33,9 @@ export async function showProduct(data) {
   titlePrice.textContent = name.toUpperCase();
   priceContainer.appendChild(titlePrice);
 
-  const priceInDollars = document.createElement('p');
-  priceInDollars.className = `priceInDollars`;
-  priceInDollars.textContent = `${sell_price}$`;
-  priceContainer.appendChild(priceInDollars);
-
   const priceInBs = document.createElement('p');
   priceInBs.className = `priceInBs`;
-  priceInBs.textContent = `[Bs. ${sell_price * rate}]`;
+  priceInBs.textContent = `Bs. ${sell_price * rate}`;
   priceContainer.appendChild(priceInBs);
 
 

@@ -98,14 +98,9 @@
   font-weight: 800;
 }
 
-.infoContainer div .priceInDollars {
+.infoContainer div .priceInBs {
   font-size: 9rem;
   color: #00a632;
-}
-
-.infoContainer div .priceInBs {
-  font-size: 5rem;
-  color: #ff0000;
 }
 
 
