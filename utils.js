@@ -61,7 +61,7 @@ export function showErrorInButton (btn, msg = "ERROR", btnContent = "GUARDAR") {
     btn.textContent = btnContent;
     btn.style.backgroundColor = "";
     btn.style.color = "";
-  }, 3000);
+  }, 2500);
 };
 
 

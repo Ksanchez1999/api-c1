@@ -217,10 +217,6 @@ async function downloadProducts(btn, dataRaw) {
   try {
     const token = localStorage.getItem("token");
 
-
-throw new Error('Error al descargar');
-
-
     const response = await fetch(`${BASE_URL}${DOWNLOAD_PRODUCTS_URL}`, {
       method: 'POST',
       headers: {
