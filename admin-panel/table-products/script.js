@@ -7,6 +7,8 @@ import { createModalEditProduct } from '../modal-edit-product/script.js';
 import { createModalNewProduct } from '../modal-new-product/script.js';
 import { createModalConfirm } from '../modal-confirm/modal-confirm.js';
 
+import { fakeDataForTable, fakeDataForTableFiltered } from '../../fake-data.js'; //#### ELIMINAR
+
 
 /* ============================================================
                           CONSTANTS
@@ -76,6 +78,30 @@ function logout() {
     window.location.href = REDIRECT_URL;
   }, 300);
 };
+
+
+
+//_____________  ADD CURRENT INPUT INFO IN LOCAL STORAGE  _____________
+
+function addCurrentInputInfoInLocalStorage(){
+  const valuesInputs = Array.from(document.querySelectorAll('.table-filter')).map(input => input.value);
+
+  valuesInputs.forEach((value, i)=>{
+	localStorage.setItem(`inputValue${i}`, value);
+  })
+}
+
+
+
+//_____________  APPLY DATA OF LOCAL STORAGE IN INPUTS  _____________
+
+function applyDataOfLocalStorageInInputs(){
+  const inputs = Array.from(document.querySelectorAll('.table-filter'));
+
+  inputs.forEach((input, i)=>{
+	input.value = localStorage.getItem(`inputValue${i}`);
+  })
+}
 
 
 
@@ -171,7 +197,6 @@ function renderBodyTable(data) {
       if (index === 0) return; // ID
 
       td.addEventListener('click', function() { createModalEditProduct(text, index, array); });
-
     });
 
 
@@ -246,6 +271,7 @@ async function downloadProducts(btn, dataRaw) {
     throw error;
   }
 }
+
 
 
 
@@ -365,7 +391,13 @@ for (let i = 0; i < columnTitles.length; i++) {
   input.placeholder = `Filtrar...`;
   input.classList.add("table-filter");
 
-  input.addEventListener('input', applyFilter);
+  input.addEventListener('input', ()=> {
+	/*UPDATE LOCAL STORAGE*/
+    addCurrentInputInfoInLocalStorage();
+
+	/*APPLY FILTER*/
+    applyFilter();
+  });
   
   th.appendChild(input);
   tr2Head.appendChild(th);
@@ -423,15 +455,21 @@ try {
 
 
 
-// _____________  TABLE DATA  _____________
+// _____________ INITIAL FILTER _____________
 
-try {
-  tableDataRaw = await request(DATA_TABLE_URL);
-  const tableData = dataModify(tableDataRaw);
-  renderBodyTable(tableData);
-  currentTableData = tableDataRaw;
+applyDataOfLocalStorageInInputs();
+applyFilter()
 
-} catch (error) {
-  console.warn("Fallo al obtener los datos de la tabla.");
-}
+
+
+
+
+
+
+
+
+
+
+
+
 
