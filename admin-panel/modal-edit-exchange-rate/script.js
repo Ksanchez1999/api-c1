@@ -93,7 +93,7 @@ export async function createModalEditExchangeRate(rate){
     modal.remove();
   });
 
-  modal.addEventListener("click", (e) => {
+  modal.addEventListener("mousedown", (e) => {
     if (e.target === modal) {
       modal.remove();
     }

@@ -173,7 +173,7 @@ export async function createModalEditProduct(text, index, array){
     modal.remove();
   });
 
-  modal.addEventListener("click", (e) => {
+  modal.addEventListener("mousedown", (e) => {
     if (e.target === modal) {
       modal.remove();
     }
